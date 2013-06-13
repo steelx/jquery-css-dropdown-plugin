@@ -1,5 +1,5 @@
-// jQuery().dropdown_menu() by Daniel Upshaw 2012-2013
-// http://danielupshaw.com/jquery-css-dropdown-plugin/readme.html
+// Menu
+// jQuery().dropdown_menu()
 
 // Beginning semi-colon for concatenated scripts and any improperly closed plugins
 ;(function( $, window, document, undefined ) {
@@ -24,7 +24,7 @@
             };
 
             // Test for IE <= 7
-            var ie7 = ($.browser.msie && $.browser.version < 8);
+            //var ie7 = ($.browser.msie && $.browser.version < 8);
 
             return this.each(function() {
                 var menu     = $(this);
@@ -63,13 +63,13 @@
                     }
 
                     // IE <= 7
-                    if (ie7) {
-                        // Wrap in setTimeout() else the arrow may not be included
-                        setTimeout(function() {
-                            // Lock submenu UL width in CSS so that the LI's can stretch
-                            submenu.css({ 'width' : submenu.width() });
-                        }, 0);
-                    }
+//                    if (ie7) {
+//                        // Wrap in setTimeout() else the arrow may not be included
+//                        setTimeout(function() {
+//                            // Lock submenu UL width in CSS so that the LI's can stretch
+//                            submenu.css({ 'width' : submenu.width() });
+//                        }, 0);
+//                    }
 
                     // Handle hover states
                     $(this).on({
@@ -104,7 +104,7 @@
                                 if (overflow && o.viewport_overflow) {
                                     // Padding to accomodate for drop shgadows, etc
                                     var padding = 10;
-                                    if (o.viewport_overflow === 'auto') o.viewport_overflow = ie7 ? 'scroll' : 'move';
+                                    //if (o.viewport_overflow === 'auto') o.viewport_overflow = ie7 ? 'scroll' : 'move';
 
                                     switch (o.viewport_overflow) {
                                         case 'move' :
@@ -170,13 +170,14 @@
                 setTimeout(function() {
                     // Completely hide the submenus
                     $('ul', menu).hide(1)
-                    .promise()
-                    .done(function() {
-                        // Apply the init callback
-                        o.init.call(menu[0]);
-                    });
+                        .promise()
+                        .done(function() {
+                            // Apply the init callback
+                            o.init.call(menu[0]);
+                        });
                 }, 0);
             });
         }
     });
 })( jQuery, window , document );
+// Menu END
